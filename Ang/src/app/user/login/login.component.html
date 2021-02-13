@@ -1,0 +1,102 @@
+
+<div class="form-group row">
+
+   <form [formGroup]="registrationForm">
+  <div class="col-sm-10" *ngIf="check!=0">
+    <label class="col-sm-2 col-form-label" *ngIf="check!=0">Login</label>
+      <input type="text" class="form-control"
+      placeholder="Enter the login" formControlName="userLogin" >
+
+      <span *ngIf="!userLogin1.valid && userLogin1.touched"
+      class="error-block" >
+        Please provide the login
+      </span>
+      <br>
+  </div>
+
+  <div class="col-sm-10" *ngIf="check==0 || check!=0">
+    <label class="col-sm-2 col-form-label" *ngIf="check==0 || check!=0">Email</label>
+      <input type="text" class="form-control"
+      placeholder="Enter the email address" formControlName="userEmail">
+
+      <span *ngIf="!userEmail1.valid && userEmail1.touched"
+      class="error-block" >
+      <span *ngIf="userEmail1.hasError('required')">
+        Please provide the email
+      </span>
+      <span *ngIf="userEmail1.hasError('email')">
+        Please provide the valid email
+      </span>
+      </span>
+
+      <br>
+  </div>
+
+  <div class="col-sm-10" *ngIf="check==0 || check!=0">
+    <label class="col-sm-2 col-form-label" *ngIf="check==0 || check!=0">Password</label>
+      <input type="password" class="form-control"
+      placeholder="Enter the Password" formControlName="userPassword">
+
+      <span *ngIf="!userPassword1.valid && userPassword1.touched"
+      class="error-block" >
+      <span *ngIf="userPassword1.errors['required']">
+        Please provide password
+      </span>
+      <span *ngIf="userPassword1.errors.minlength">
+        Password should not be lesser than 8 character
+      </span>
+      </span>
+
+      <br>
+  </div>
+
+  <div class="col-sm-10" *ngIf="check!=0">
+    <label class="col-sm-2 col-form-label" *ngIf="check!=0">Confirm password</label>
+      <input type="password" class="form-control"   formControlName="CFPassword"
+      placeholder="Enter the Password again">
+
+      <span  *ngIf="!userCFpassword.valid && userCFpassword.touched"  class="error-block">
+        <span *ngIf="userCFpassword.hasError('required')">
+          Please confirm password
+        </span>
+      </span>
+        <span *ngIf="registrationForm.hasError('notmatched') && userCFpassword.valid">
+          Password not matched
+        </span>
+
+      <br>
+  </div>
+
+
+</form>
+  <br>
+  <br>
+
+
+</div>
+  <br>
+
+<!-- Кнопки появляются при разных условиях -->
+
+<!-- Войти в систему  -->
+<button type="button" (click)="SignIn()" *ngIf="check==0" class="btn btn-primary float-right">
+  Sign in
+</button>
+&nbsp;
+&nbsp;
+<!-- Если нет акка, то пытаемся его создать - на форму добавляются новые элементы -->
+<button type="submit" (click)="SignUp()"  *ngIf="check==0" class="btn btn-primary float-right">
+  Sign up
+</button>
+<!-- После ввода данных, создаем на форме регистрации - новый аккаунт -->
+<button type="submit" (click)="CreateAccount()"  *ngIf="check!=0"class="btn btn-primary">
+  Create account
+</button>
+&nbsp;
+
+<button type="submit" (click)="AlreadyExisted()"  *ngIf="check!=0"class="btn btn-primary float-right">
+  I have an account
+</button>
+
+
+

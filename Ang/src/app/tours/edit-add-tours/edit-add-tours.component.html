@@ -1,0 +1,38 @@
+<div class="form-group row">
+
+  <label class="col-sm-2 col-form-label">Tour</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="TourName"
+      placeholder="Enter Tour">
+      <br>
+  </div>
+
+  <label class="col-sm-2 col-form-label">Country</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="Country"
+      placeholder="Enter Country">
+      <br>
+  </div>
+  <label class="col-sm-2 col-form-label">City</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="City"
+      placeholder="Enter City">
+      <br>
+  </div>
+  <label class="col-sm-2 col-form-label">Description</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="Description"
+      placeholder="Enter Description">
+      <br>
+  </div>
+
+    <app-photo-upload (onUploadFinished)="uploadFinished($event)" ></app-photo-upload>
+
+</div>
+<br>
+
+
+<button (click)="updateTour()"  class="btn btn-primary">
+  Update
+</button>
+

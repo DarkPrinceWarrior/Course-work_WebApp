@@ -1,0 +1,110 @@
+<!-- Modal -->
+<div class="modal fade" id="AddFlight" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close"
+        data-dismiss="modal" aria-label="Close"
+        (click)="CloseClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <app-add-edit-airline  [trs1]="trs1" [Adding]="Adding" *ngIf="ActivatedEditAdd">
+
+        </app-add-edit-airline>
+
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container">
+
+  <div class="card" style="margin-top:20px;">
+
+  <div class="card-header">
+   Airline panel
+  </div>
+
+  <div class="card-body">
+
+   <div>
+
+
+    <h2 class="Highlight"> The list of flights</h2>
+          <hr class="hr-line">
+
+
+          <button type="button" (click)="addFlight()"  data-toggle="modal" data-target="#AddFlight"
+          class="m-1 btn btn-light btn-outline-primary"  data-backdrop="static" data-keyboard="false">
+            Add new flight
+          </button>
+
+          <br>
+          <br>
+
+    <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="airLineName">
+        <th mat-header-cell *matHeaderCellDef> Airline Name </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.airLineName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="airCompId">
+        <th mat-header-cell *matHeaderCellDef> Airline company </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.airCompId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cityBoardingId">
+        <th mat-header-cell *matHeaderCellDef> Boarding city</th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.cityBoardingId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cityLandingId">
+      <th mat-header-cell *matHeaderCellDef>Landing city</th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.cityLandingId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="theSum">
+    <th mat-header-cell *matHeaderCellDef>Flight sum</th>
+      <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.theSum}} </td>
+</ng-container>
+
+
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let BookedTours">
+
+      <button mat-icon-button (click)="ChangeFlight(BookedTours)"
+      data-toggle="modal" data-target="#AddFlight" data-backdrop="static" data-keyboard="false"
+      ><mat-icon>settings</mat-icon></button>
+      <button mat-icon-button (click)="RemoveFlight(BookedTours.id)"><mat-icon>remove_shopping_cart</mat-icon></button>
+    </td>
+</ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>

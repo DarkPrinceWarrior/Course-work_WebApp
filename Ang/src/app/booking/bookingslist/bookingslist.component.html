@@ -1,0 +1,87 @@
+<div class="container">
+
+  <div class="card" style="margin-top:20px;">
+
+  <div class="card-header">
+   Booking...
+  </div>
+
+  <div class="card-body">
+
+    <br>
+    <h2 class="Highlight"> The list of bookings</h2>
+          <hr class="hr-line">
+          <br>
+
+          <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="airLineId">
+              <th mat-header-cell *matHeaderCellDef> Flight </th>
+              <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.airLineId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="number_of_people">
+              <th mat-header-cell *matHeaderCellDef> Number of People </th>
+              <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.number_of_people}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="number_of_days">
+              <th mat-header-cell *matHeaderCellDef> Number of Days</th>
+              <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.number_of_days}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sum">
+            <th mat-header-cell *matHeaderCellDef>Sum</th>
+              <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.sum}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="roomNumberId">
+          <th mat-header-cell *matHeaderCellDef>room No.</th>
+          <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.roomNumberId}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="isBooked">
+        <th mat-header-cell *matHeaderCellDef>Book status</th>
+          <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.isBooked}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="touristId">
+        <th mat-header-cell *matHeaderCellDef>tourist No.</th>
+          <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.touristId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let BookedTours">
+            <button mat-icon-button (click)="ConfirmBook(BookedTours)"><mat-icon>assignment_turned_in</mat-icon></button>
+            <button mat-icon-button (click)="ReturnBook(BookedTours.id)"><mat-icon>remove_shopping_cart</mat-icon></button>
+          </td>
+      </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+
+
+
+   <div>
+
+
+    </div>
+  </div>
+</div>
+</div>

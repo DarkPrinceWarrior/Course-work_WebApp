@@ -1,0 +1,37 @@
+.hr-line{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 3px solid #333;
+
+}
+
+table{
+  width:100%;
+}
+
+
+.Highlight{
+
+  color: brown;
+
+}
+
+
+.label-class{
+  font-weight:bold;
+  font-size: 20px;
+
+}
+
+.hr-line1{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px solid yellowgreen;
+
+}

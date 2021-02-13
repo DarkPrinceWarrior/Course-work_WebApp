@@ -1,0 +1,163 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="" (click)="onClickLink(true)" >Tour Agency
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+              <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+              <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+            </svg> Menu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <li class="nav-item">
+              <button  *ngIf="UserRole!='Book-m' "  routerLink="tours" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>Tours</button></li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin'|| UserRole=='Tour-m'" routerLink="Add_Edit" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Add New Tour
+            </button>
+
+            </li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin'|| UserRole=='Tour-m'" routerLink="Add_hotel" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Add New Hotel
+            </button>
+
+            </li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin'|| UserRole=='Book-m'" routerLink="Book_List" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Bookings list
+            </button>
+
+            </li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin' " routerLink="User_List" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Users list
+            </button>
+
+            </li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin'|| UserRole=='Tour-m'" routerLink="Airline" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Airline
+            </button>
+
+            </li>
+
+            <li>
+              <button *ngIf="UserRole=='Admin'|| UserRole=='Tour-m'" routerLink="Roomnumber" routerLinkActive="active-link" (click)="onClickLink(false)"
+              class="m-1 btn btn-light btn-outline-primary dropdown-item" Button>
+              Roomnumber
+            </button>
+
+            </li>
+
+
+          </ul>
+        </li>
+      </ul>
+
+
+  <div>
+<ul class="nav navbar-nav">
+
+  <li class="nav-item" *ngIf="!Islogged()">
+<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal1"
+>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+  <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+</svg> Login and Register
+</button>
+
+  </li>
+
+  <li class="nav-item" *ngIf="Islogged()">
+    <div class="btn-group" dropdown>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Welcome {{loggedInUser}}
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" (click)="onLogout()" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2v13h1V2.5a.5.5 0 0 0-.5-.5H11zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+        </svg>
+        Log out</a>
+      <a class="dropdown-item" routerLink="SeeProfile" routerLinkActive="active-link" (click)="onClickLink(false)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+      </svg>
+      Profile</a>
+    </div>
+  </div>
+      </li>
+
+</ul>
+
+    </div>
+
+    </div>
+
+  </div>
+</nav>
+
+<!-- //////////////// SMTH to be written //////////////////////// -->
+
+
+<div *ngIf="IsActivated">
+  <h1 class="class1" >“Traveling – it leaves you speechless,
+    then turns you into a storyteller.” – Ibn Battuta</h1>
+</div>
+
+ <div class="slider" *ngIf="IsActivated">
+
+ </div>
+
+<router-outlet> </router-outlet>
+
+<app-footer></app-footer>
+
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Authorization/Registration</h5>
+        <button type="button" class="close"
+        data-dismiss="modal" aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <app-login [check]="0"></app-login>
+      </div>
+
+      </div>
+    </div>
+  </div>

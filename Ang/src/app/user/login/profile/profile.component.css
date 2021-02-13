@@ -1,0 +1,60 @@
+container{
+
+  margin-top: 20px;
+
+}
+
+table{
+
+   width:100%;
+
+}
+
+
+.hr-line{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 3px solid #333;
+
+}
+
+
+.Highlight{
+
+   color: brown;
+
+}
+
+h3{
+  margin-top: 10px;
+  display: list-item;          /* This has to be "list-item"                                               */
+  list-style-type: "\1F44D";       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+  list-style-position: inside; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position */
+
+}
+
+.label-class{
+  font-weight:bold;
+  font-size: 20px;
+
+}
+
+.hr-line1{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px solid yellowgreen;
+
+}
+
+
+.color{
+
+  color:red;
+
+}

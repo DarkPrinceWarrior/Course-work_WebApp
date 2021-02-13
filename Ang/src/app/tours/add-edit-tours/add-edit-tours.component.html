@@ -1,0 +1,82 @@
+
+
+  <div class="container">
+<div class="card" style="margin-top:20px;">
+
+<div class="card-header">
+ Add New Tour
+</div>
+
+<div class="card-body">
+
+
+
+<div class="form-group col-12">
+
+  <label class="col-sm-2 col-form-label">Tour</label>
+
+      <input type="text" class="form-control" [(ngModel)]="TourName"
+      placeholder="Enter Tour">
+      <br>
+
+</div>
+
+<div class="form-group col-12">
+  <label class="col-sm-2 col-form-label">Country</label>
+
+      <input type="text" class="form-control" [(ngModel)]="Country"
+      placeholder="Enter Country">
+      <br>
+
+</div>
+
+<div class="form-group col-12">
+  <label class="col-sm-2 col-form-label">City</label>
+
+      <input type="text" class="form-control" [(ngModel)]="City"
+      placeholder="Enter City">
+      <br>
+
+</div>
+
+
+<div class="form-group col-12">
+  <label class="col-sm-2 col-form-label">Description</label>
+
+      <input type="text" class="form-control" [(ngModel)]="Description"
+      placeholder="Enter Description">
+      <br>
+
+</div>
+
+<div class="form-group col-12">
+    <app-photo-upload (onUploadFinished)="uploadFinished($event)" ></app-photo-upload>
+
+    <button (click)="addTour()"  class="m-1 btn btn-light btn-outline-primary">
+      Add
+    </button>
+    &nbsp;
+    <button routerLink=""
+    class="m-1 btn btn-light btn-outline-primary" Button>
+    Back
+  </button>
+  </div>
+
+
+
+
+
+</div>
+
+<div class="card-footer">
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+

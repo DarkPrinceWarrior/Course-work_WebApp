@@ -1,0 +1,57 @@
+.img-wrapper{
+
+  overflow: hidden;
+
+}
+
+.borderMat{
+
+  border: 1px solid #000;
+
+}
+
+
+/* .img-fluid{
+
+  width: 100% \9;
+  height: auto;
+
+} */
+
+
+
+h3{
+  margin-top: 10px;
+  display: list-item;          /* This has to be "list-item"                                               */
+  list-style-type: disc;       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+  list-style-position: inside; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position */
+  font-size: 20px;
+
+}
+
+h2{
+  font-size: 25px;
+
+
+}
+
+
+h1{
+
+  font-size: 30px;
+   color: brown;
+   font-weight: normal;
+   font-style: oblique;
+
+}
+
+
+.hr-line{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 3px solid #333;
+
+}

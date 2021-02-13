@@ -1,0 +1,166 @@
+
+
+<!-- Modal -->
+<div class="modal fade" id="EditLoginInf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close"
+        data-dismiss="modal" aria-label="Close"
+        (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <app-edit-user [trs1]="trs1" [check]="check" [User_Id]="User_Id"   *ngIf="ActivateAddEditUserInf">
+
+              </app-edit-user>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container">
+
+  <div class="card" style="margin-top:20px;">
+
+  <div class="card-header">
+   User Profile
+  </div>
+
+  <div class="card-body">
+
+   <div>
+
+<tabset #formTabs>
+
+  <tab heading="Personal information">
+    <br>
+    <h2 class="Highlight"> User Information</h2>
+          <hr class="hr-line">
+
+
+    <div class="form-group col-12">
+
+      <label class="col-sm-2 col-form-label" class="label-class">User log in information</label>
+
+     <h3>Username: {{Login}}</h3>
+     <h3>email address: {{Email}}</h3>
+     <h3>password: {{Password}}</h3>
+     <button type="button"
+     data-toggle="modal" data-target="#EditLoginInf"
+     (click)="editClick1(1)"
+     data-backdrop="static" data-keyboard="false">Change</button>
+
+     <hr class="hr-line1">
+    </div>
+
+    <div class="form-group col-12">
+
+      <label class="col-sm-2 col-form-label" class="label-class">User personal information</label>
+
+     <h3>FIO: {{FIO}}</h3>
+     <h3>Gender: {{Sex}}</h3>
+     <h3>Date of birth: {{Birth}}</h3>
+     <h3>Pasport series: {{Series}}</h3>
+     <h3>Pasport number: {{PNumber}}</h3>
+     <button type="button"
+     data-toggle="modal" data-target="#EditLoginInf"
+     (click)="editClick1(2)"
+     data-backdrop="static" data-keyboard="false">Change</button>
+
+     <br>
+     <br>
+     <hr class="hr-line1">
+     <button type="button" (click)="DeleteUser()"
+     class="color" >
+      Delete account
+    </button>
+
+    </div>
+
+
+
+
+  </tab>
+
+  <tab heading="Booking cart">
+    <br>
+    <h2 class="Highlight"> The list of bookings</h2>
+          <hr class="hr-line">
+          <br>
+
+    <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="airLineId">
+        <th mat-header-cell *matHeaderCellDef> Flight </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.airLineId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="number_of_people">
+        <th mat-header-cell *matHeaderCellDef> Number of People </th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.number_of_people}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="number_of_days">
+        <th mat-header-cell *matHeaderCellDef> Number of Days</th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.number_of_days}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sum">
+      <th mat-header-cell *matHeaderCellDef>Sum</th>
+        <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.sum}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="roomNumberId">
+    <th mat-header-cell *matHeaderCellDef>roomNumberId</th>
+    <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.roomNumberId}} </td>
+</ng-container>
+
+
+<ng-container matColumnDef="isBooked">
+  <th mat-header-cell *matHeaderCellDef>isBooked</th>
+    <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.isBooked}} </td>
+</ng-container>
+
+
+<ng-container matColumnDef="touristId">
+  <th mat-header-cell *matHeaderCellDef>touristId</th>
+    <td mat-cell *matCellDef="let BookedTours"> {{BookedTours.touristId}} </td>
+</ng-container>
+
+<ng-container matColumnDef="action">
+  <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let BookedTours">
+      <button mat-icon-button (click)="ReturnBook(BookedTours)"><mat-icon>remove_shopping_cart</mat-icon></button>
+    </td>
+</ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+
+  </tab>
+
+</tabset>
+
+
+</div>
+</div>
+</div>
+</div>
+
+

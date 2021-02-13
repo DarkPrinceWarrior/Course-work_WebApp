@@ -1,0 +1,114 @@
+<div class="form-group row" >
+
+  <label class="col-sm-2 col-form-label">Flight name</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="AirLineName"
+      placeholder="Enter the flight name">
+      <br>
+  </div>
+
+  <label class="col-sm-2 col-form-label">Sum</label>
+  <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="Sum"
+      placeholder="Enter the sum">
+      <br>
+  </div>
+
+  <!-- dropdown -->
+
+  <label class="col-sm-2 col-form-label" *ngIf="Adding" >Airline company name</label>
+  <div class="col-sm-10" *ngIf="Adding">
+    <mat-form-field >
+
+      <mat-label >  Choose airline company  </mat-label>
+
+        <mat-select  (selectionChange)="onChangeCompany($event.value)">
+
+          <mat-option value="">
+             ...
+
+          </mat-option>
+
+          <mat-option *ngFor="let dataItem of CompanyList" [value]="dataItem.id">
+
+            {{dataItem.airCompName}}
+          </mat-option>
+
+        </mat-select>
+
+        <br>
+
+
+    </mat-form-field>
+      <br>
+  </div>
+
+  <!-- dropdown -->
+  <label class="col-sm-2 col-form-label">City boarding</label>
+  <div class="col-sm-10">
+    <mat-form-field >
+
+      <mat-label >  Choose boarding city  </mat-label>
+
+        <mat-select  (selectionChange)="onChangeBoardingCity($event.value)">
+
+          <mat-option value="">
+             ...
+
+          </mat-option>
+
+          <mat-option *ngFor="let dataItem of BoardingList" [value]="dataItem.id">
+
+            {{dataItem.city}}
+          </mat-option>
+
+        </mat-select>
+
+        <br>
+
+
+    </mat-form-field>
+      <br>
+  </div>
+
+  <!-- dropdown -->
+  <label class="col-sm-2 col-form-label">City landing</label>
+  <div class="col-sm-10">
+    <mat-form-field >
+
+      <mat-label >  Choose landing city  </mat-label>
+
+        <mat-select  (selectionChange)="onChangeLandCity($event.value)">
+
+          <mat-option value="">
+             ...
+
+          </mat-option>
+
+          <mat-option *ngFor="let dataItem of LandingList" [value]="dataItem.id">
+
+            {{dataItem.city}}
+          </mat-option>
+
+        </mat-select>
+
+        <br>
+
+
+    </mat-form-field>
+      <br>
+  </div>
+</div>
+
+
+
+<br>
+
+
+<button (click)="updateFlight()"  class="btn btn-primary" *ngIf="!Adding">
+  Update
+</button>
+
+<button (click)="addFlight()"  class="btn btn-primary" *ngIf="Adding">
+  Add Flight
+</button>

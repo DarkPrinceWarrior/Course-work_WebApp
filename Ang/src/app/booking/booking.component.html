@@ -1,0 +1,477 @@
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <div class="card" style="margin-top:20px;">
+
+  <div class="card-header">
+   Booking...
+  </div>
+
+  <div class="card-body">
+
+   <div>
+       <tabset #formTabs >
+
+        <!-- --------------------------------------- -->
+
+        <tab heading="Personal information">
+           <br>
+          <h2 class="Highlight"> Enter your passport information</h2>
+          <hr class="hr-line">
+          <br>
+
+
+          <div class="form-group col-12">
+
+            <label class="col-sm-2 col-form-label">FIO</label>
+
+                <input [(ngModel)]="FIO" type="text" class="form-control"
+                placeholder="Enter FIO">
+
+                <br>
+
+          </div>
+
+
+
+          <div class="form-group col-12">
+            <label class="col-sm-2 col-form-label">Gender</label>
+                <div class="form-control">
+
+                  <label class="checkbox-inline">
+                    <input type="checkbox" name="SexMale" value="Male" [checked]="SexMale" [ngModel]="SexMale"
+                    (change)="onChangeGender($event.target.checked,1)">
+                    Male
+                  </label>
+                  &nbsp;
+                  <label class="checkbox-inline">
+                    <input type="checkbox" name="SexFemale" value="Female" [checked]="SexFemale" [ngModel]="SexFemale"
+                     (change)="onChangeGender($event.target.checked,2)">
+                  Female
+                  </label>
+                </div>
+                <br>
+          </div>
+
+
+          <div class="form-group col-12">
+            <label class="col-sm-2 col-form-label">Date of birth</label>
+
+                <input type="text" [matDatepicker]="eBirth" class="form-control" [(ngModel)]="Birth"
+                placeholder="Enter Date of birth">
+                <mat-datepicker-toggle [for]="eBirth" ></mat-datepicker-toggle>
+                <mat-datepicker #eBirth> </mat-datepicker>
+                <br>
+
+          </div>
+
+
+          <div class="form-group col-12">
+            <label class="col-sm-2 col-form-label">Passport series</label>
+
+                <input type="text" class="form-control" [(ngModel)]="Series"
+                placeholder="Enter Passport series">
+                <br>
+
+          </div>
+
+          <div class="form-group col-12">
+            <label class="col-sm-2 col-form-label">Passport number</label>
+
+                <input type="text" class="form-control" [(ngModel)]="PNumber"
+                placeholder="Enter Passport number">
+                <br>
+
+          </div>
+
+
+
+          <div class="form-group col-12">
+
+            <button type="button" (click)="ConfirmOrChange()"
+            class="m-1 btn btn-light btn-outline-primary" Button>
+            Confirm or Change
+          </button>
+          &nbsp;
+
+            <button type="button" (click)="selectTab(1,1)"
+            class="m-1 btn btn-light btn-outline-primary" Button>
+            Next
+          </button>
+
+
+
+          </div>
+
+
+        </tab>
+ <!-- --------------------------------------- -->
+
+
+ <!-- --------------------------------------- -->
+        <tab heading="Placing information">
+
+
+
+
+          <br>
+          <h2 class="Highlight">Enter accomodation information</h2>
+          <hr class="hr-line">
+          <br>
+
+
+          <div class="form-group col-12" >
+
+
+
+            <label class="col-sm-2 col-form-label">Number of days</label>
+
+            <input type="text" class="form-control" [(ngModel)]="DaysNumber" (change)="onChangeDaysNumber($event.target.value)"
+            placeholder="Enter Number of days">
+
+                <br>
+
+          </div>
+
+
+
+          <div class="form-group col-12" *ngIf="check1">
+
+
+
+            <label class="col-sm-2 col-form-label">Number of people</label>
+
+            <input type="text" class="form-control" [(ngModel)]="PeopleNumber"
+             (change)="onChangePeopleNumber($event.target.value)"
+            placeholder="Enter Number of People">
+
+                <br>
+
+          </div>
+
+        <!-- // dropdownlist RoomType -->
+          <div class="form-group col-12" *ngIf="check2">
+
+
+
+            <label class="col-sm-2 col-form-label">Room type</label>
+
+            <select  class="form-control"  (change)="onChangeRoomType($event.target.value)">
+              <option value="">Select Room Type...</option>
+              <option   *ngFor="let dataItem of HotelRoomList2" [value]="dataItem.id" >
+                {{dataItem.roomType}}</option>
+
+            </select>
+
+                <br>
+
+          </div>
+
+
+
+
+           <!-- // dropdownlist RoomNumber according to type   -->
+
+           <div class="form-group col-12" *ngIf="check3">
+
+
+
+            <label class="col-sm-2 col-form-label">Room Number</label>
+
+            <select  class="form-control"   (change)="onChangeRoomNumber($event.target.value)">
+              <option value="">Select Room Number...</option>
+              <option  *ngFor="let dataItem of HotelRoomNumberList2" [value]="dataItem.id" >
+                {{dataItem.roomNumber}}</option>
+
+            </select>
+
+                <br>
+
+          </div>
+
+
+
+
+          <div class="form-group col-12" *ngIf="check4">
+
+            <label class="col-sm-2 col-form-label">Price</label>
+
+                 <h2 >{{TheSumforRoom}}</h2>
+
+                <br>
+
+          </div>
+
+
+
+
+          <div class="form-group col-12">
+
+            <button type="button" (click)="selectTab(2,1)"
+            class="m-1 btn btn-light btn-outline-primary" Button>
+            Next
+          </button>
+          &nbsp;
+          <button type="button"  (click)="selectTab(0,0)"
+          class="m-1 btn btn-light btn-outline-primary" Button>
+          Back
+        </button>
+          </div>
+
+
+
+
+
+        </tab>
+ <!-- --------------------------------------- -->
+
+
+        <tab heading="Airline">
+          <br>
+          <h2 class="Highlight">Choose Airline company</h2>
+          <hr class="hr-line">
+          <br>
+
+          <!-- (change)="onChangeIsFlight()" -->
+          <div class="form-group col-12">
+            <label class="col-sm-4 col-form-label">Do you want to book the flight?</label>
+                <div class="form-control">
+                  <label class="radio-inline">
+                    <input type="radio" name="flight" value="Yes" [(ngModel)]="IsFlight" >
+                    Yes
+                  </label>
+                  &nbsp;
+                  <label class="radio-inline">
+                    <input type="radio" name="flight" value="No" [(ngModel)]="IsFlight" (change)="onChangeIsFlight()">
+                  No
+                  </label>
+                </div>
+                <br>
+          </div>
+
+
+          <div class="form-group col-12" *ngIf="IsFlight==='Yes' ">
+
+
+
+            <label class="col-sm-2 col-form-label">Departure city</label>
+
+            <input type="text" class="form-control"
+            (change)="onChangeDepartureCity($event.target.value)"
+            placeholder="Enter Departure city">
+
+                <br>
+
+          </div>
+
+
+          <!-- <label class="col-sm-2 col-form-label">Room type</label>
+
+          <select  class="form-control" -->
+
+          <div class="form-group col-12" *ngIf="CheckSelectFlight">
+
+            <mat-form-field >
+
+              <mat-label >  Flight  </mat-label>
+
+                <mat-select  (selectionChange)="onChangeFlightList($event.value)">
+
+                  <mat-option value="">
+                    Select Flight ...
+
+                  </mat-option>
+
+                  <mat-option *ngFor="let dataItem of FlightLIst2" [value]="dataItem.id">
+
+                    {{"("+dataItem.airLineName+")"+" --- "+"("+AirLineName(dataItem.airCompId)+")"+"  "+DepartureCity+"----->"+LanndingCity}}
+                  </mat-option>
+
+                </mat-select>
+
+                <br>
+
+
+            </mat-form-field>
+
+
+          </div>
+
+
+
+          <div class="form-group col-12" *ngIf="IsChosenFlight">
+
+
+
+            <label class="col-sm-2 col-form-label">Price for the flight</label>
+
+            <h2 >{{getMoneyForFlight()}}</h2>
+
+                <br>
+
+          </div>
+
+
+
+
+          <div class="form-group col-12">
+
+
+            <button type="button" (click)="selectTab(3,1)"
+            class="m-1 btn btn-light btn-outline-primary" Button>
+            Next
+          </button>
+          &nbsp;
+          <button type="button"   (click)="selectTab(1,0)"
+          class="m-1 btn btn-light btn-outline-primary" Button>
+          Back
+        </button>
+          </div>
+
+        </tab>
+ <!-- --------------------------------------- -->
+
+
+        <tab heading="Result of booking">
+          <br>
+          <h2 class="Highlight">Booking Confrirmation</h2>
+
+          <hr class="hr-line">
+          <br>
+          <div class="form-group col-12">
+
+            <label class="col-sm-2 col-form-label" class="label-class">Tour information </label>
+
+            <br>
+
+
+                 <h3 [innerHTML]="getTourInf()"></h3>
+
+
+                <br>
+
+          </div>
+
+
+
+          <div class="form-group col-12" >
+
+            <label class="col-sm-2 col-form-label" class="label-class">Hotel information</label>
+            <br>
+
+                 <h3 [innerHTML]="getHotelInf()"></h3>
+
+
+                <br>
+
+          </div>
+
+
+
+          <div class="form-group col-12" >
+
+            <label class="col-sm-2 col-form-label" class="label-class">Room Information</label>
+            <br>
+
+                 <h3 [innerHTML]="getRoomInf()"></h3>
+                 <!-- это работает!!! -->
+
+                <br>
+
+                <div class="form-group col-12">
+
+                  <button type="button" (click)="ConfirmRoom()"
+                  class="m-1 btn btn-light btn-outline-primary" Button>
+                  Confirm room
+                </button>
+
+                <button type="button" (click)="CanclelRoom()"
+                class="m-1 btn btn-light btn-outline-primary" Button>
+                Cancel room
+              </button>
+
+                </div>
+
+          </div>
+          <br>
+
+          <div class="form-group col-12" >
+
+            <label class="col-sm-2 col-form-label" class="label-class">Flight information</label>
+            <br>
+
+                 <h3 [innerHTML]="getFlightInf()"></h3>
+
+
+
+                <br>
+
+          </div>
+          <div class="form-group col-12" >
+
+            <label class="col-sm-2 col-form-label" class="label-class">The Sum for tour</label>
+            <br>
+
+                 <h3 >{{getFinalSum()}}</h3>
+                <br>
+
+          </div>
+
+
+
+
+
+
+
+
+          <div class="form-group col-12">
+
+            <button (click)="BookTour()"  class="m-1 btn btn-light btn-outline-primary">
+              Book
+            </button>
+
+          &nbsp;
+          <button type="button"  (click)="selectTab(2,0)"
+          class="m-1 btn btn-light btn-outline-primary" Button>
+          Back
+        </button>
+          </div>
+
+
+
+
+
+
+
+          </tab>
+ <!-- --------------------------------------- -->
+
+
+
+       </tabset>
+
+   </div>
+
+
+  </div>
+
+
+  <div class="card-footer">
+
+  </div>
+
+
+
+  </div>
+
+  </div>

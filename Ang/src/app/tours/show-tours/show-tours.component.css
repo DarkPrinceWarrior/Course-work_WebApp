@@ -1,0 +1,65 @@
+.card:hover img{
+
+ transform: scale(1.2,1.2);
+ transition-duration: 500ms;
+ transition-timing-function: ease-out;
+}
+
+.card img{
+
+  transform: scale(1,1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+ }
+
+
+ .img-wrapper{
+
+   overflow: hidden;
+
+ }
+
+ .border_width_thick{
+	border-style: solid;
+	border-color: #000408;
+	border-width: thick;
+	}
+
+
+  .moving{
+
+    margin-left: 1000px;
+
+  }
+
+
+.container{
+  padding: 16px;
+}
+
+.content{
+
+   margin-top: 8px;
+   padding-right:16px ;
+   padding-left: 30px;
+   max-width: 600px;
+   margin-bottom: 8px;
+
+}
+
+.box{
+
+  width: 500px;
+  margin: 15px auto 0px auto;
+  border-style:solid
+
+}
+
+
+.color{
+  font-size: 25px;
+  color: brown;
+  font-weight: bold;
+
+
+}

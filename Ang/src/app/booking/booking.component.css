@@ -1,0 +1,38 @@
+.mat-select{
+
+  width:400px;
+
+
+}
+
+.hr-line{
+
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 3px solid #333;
+
+}
+
+
+.Highlight{
+
+   color: brown;
+
+}
+
+.label-class{
+  font-weight:bold;
+  font-size: 20px;
+
+}
+
+
+h3{
+  margin-top: 10px;
+  display: list-item;          /* This has to be "list-item"                                               */
+  list-style-type: "\1F44D";       /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+  list-style-position: inside; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position */
+
+}
