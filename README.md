@@ -1,2 +1,3 @@
 # Course-work_WebApp
-Курсовой проект по дисциплине ТП 3к5с
+Demonstration web app showing the capabilities of ASP.NET Core 5.0 Web Api, EF (Entity Framework 3), Bootstrap, jQuery, datatables, Migrations and Angular  
+
